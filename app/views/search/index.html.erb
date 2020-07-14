@@ -1,14 +1,14 @@
 <h1> Members of selected nation: </h1>
 
-
-
 <section>
-<% @results.each do |member|%>
-<h2>name:</h2>
-  <%= member["name"] %>
-  <h3>allies:</h3>
-  <%= member["allies"].each { |ally| ally }.reject(&:blank?) %>
-  <br>
-<% end %>
-
+  <% @results.each do |member|%>
+    <ul>
+      <h2>name:<%= member["name"] %></h2>
+      <img src= <%= "#{member["photoUrl"]}" %> >
+      <h3>affiliation: <%= member["affiliation"] %> </h3>
+      <h3>allies: <%= member["allies"].each { |ally| ally }.reject(&:blank?) %></h3>
+      <h3>enemies: <%= member["enemies"].each { |enemy| enemy }.reject(&:blank?) %></h3>
+      <br>
+    </ul>
+  <% end %>
 </section>
